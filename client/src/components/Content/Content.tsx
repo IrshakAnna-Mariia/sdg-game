@@ -1,18 +1,23 @@
 import React from 'react';
-import { Layout, Breadcrumb  } from 'antd';
+import {Switch, Route} from "react-router-dom";
+import routes from "../../navigation/routes";
+import {Layout} from 'antd';
 import PlayerAccount from "../../pages/PlayerAccount";
+import Game from "../../pages/Game";
 
-const { Content } = Layout;
+
+const {Content} = Layout;
+
 function ContentSite() {
-
     return (
         <Content style={{minHeight: '82vh'}}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <PlayerAccount />
+            <Switch>
+                {routes.map((route) => (
+                    <Route path={route.path} key={route.path}>
+                        {route.component}
+                    </Route>
+                ))}
+            </Switch>
         </Content>
     );
 }
