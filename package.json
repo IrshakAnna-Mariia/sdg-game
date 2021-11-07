@@ -1,0 +1,24 @@
+{
+  "name": "sdg-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IrshakAnna-Mariia/sdg-game.git"
+  },
+  "author": "IrshakAnna-Mariia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IrshakAnna-Mariia/sdg-game/issues"
+  },
+  "homepage": "https://github.com/IrshakAnna-Mariia/sdg-game#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
