@@ -1,10 +1,10 @@
 import Server from '../server/Server';
 import  'phaser'
-let inventoryItems = [];
+const inventoryItems = []
 let self;
 export default class Inventory extends Phaser.Scene {
     constructor() {
-        super({ key: 'game-ui' });        
+        super({ key: 'game-ui' });                
     }
 
     create() {
@@ -32,14 +32,11 @@ export default class Inventory extends Phaser.Scene {
             x: window.innerWidth / 2 - (2*64),
             y: window.innerHeight - 32
         });
-  
-
-
-
     }
+
     render = (ph)=>{        
-        inventoryItems.forEach((child,index)=>{
-            console.log(self)
+        console.log('123')
+        inventoryItems.forEach((child,index)=>{            
             self.load.image(child.id, `../textures/${child.texture}`);
             const itemImg = self.add.image(window.innerWidth / 2 - (3*64) + ((index+1) * 64),window.innerHeight - 36,inventoryItems[index].id);
             itemImg.angle = 36;
@@ -49,12 +46,13 @@ export default class Inventory extends Phaser.Scene {
     }
     addItem = async (key, ph) => {
         const item = await ph.Server.requestData(`/game/api/inventory/get/${key}`);
-        inventoryItems.push(item); 
-        this.render(ph);       
+        console.log(inventoryItems)
+        this.inventoryItems.push(item); 
+        // this.render(ph);       
     }
 
     initialization = async (ph) => {
-        inventoryItems = await ph.Server.requestData('/game/api/inventory/get-all');
+        // this.inventoryItems = await ph.Server.requestData('/game/api/inventory/get-all');
         this.render(ph)
     }
 

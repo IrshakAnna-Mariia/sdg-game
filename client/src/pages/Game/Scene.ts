@@ -1,16 +1,12 @@
-import  'phaser'
+import 'phaser'
 import Server from './server/Server';
 import Inventory from './Inventory/inventory';
-// import Adaptive from './Adaptive/detect';
-// import MobileJoystick from './Control/MobileJoystick';
+import MobileJoystick from './Control/MobileJoystick'
 let self;
 export default class Scene extends Phaser.Scene {
     preload() {
-        var url;
-        url = 'virtualjoystickplugin.min.js';
         this.Server = new Server();
-        // this.Adaptive = new Adaptive();
-        // this.Adaptive.mobile();
+
         this.speed = 200;
         this.load.image('tiles', 'tiles.png');
         this.load.tilemapTiledJSON('tilemap', 'tilemap.json');
@@ -20,8 +16,8 @@ export default class Scene extends Phaser.Scene {
         this.load.image('grid', 'grid.png');
         this.load.image('sw', 'textures/tile050.png');
         this.load.image('sw2', 'textures/tile083.png');
-        this.load.plugin('rexvirtualjoystickplugin', url, true);
-         this.load.plugin('rexoutlinepipelineplugin', 'Outline/rexoutlinepipelineplugin.min.js', true);
+        this.load.plugin('rexvirtualjoystickplugin', './virtualjoystickplugin.min.js', true);
+        this.load.plugin('rexoutlinepipelineplugin',  './Outline/rexoutlinepipelineplugin.min.js', true);
     }
 
     create() {
@@ -172,15 +168,15 @@ export default class Scene extends Phaser.Scene {
         // var radius = 50;
         // graphics.lineStyle(thickness, color, alpha);
         // var a = new Phaser.Geom.Point(400, 300);
-        if(this.outline){
-        this.postFxPlugin.add(obj2, {
-                        thickness: 3,
-                        outlineColor: 0xff8a50
-                    });  
-                    this.outline = false;  
+        if (this.outline) {
+            this.postFxPlugin.add(obj2, {
+                thickness: 3,
+                outlineColor: 0xff8a50
+            });
+            this.outline = false;
         }
-        
-        
+
+
         // this.helptxt = graphics.strokeCircle(obj2.x, obj2.y, 50);
         // //this.add.text(obj2.x - obj2.width, obj2.y - 24, `Press F`, style);
         // this.helptxt.setDepth(5);

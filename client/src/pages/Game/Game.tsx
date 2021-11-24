@@ -10,7 +10,7 @@ import Inventory from "./Inventory/inventory";
 
 const Game = () => {
 
-    const initialize = false    
+    const initialize = true    
 
     const config = {
         type: Phaser.AUTO,
@@ -24,8 +24,11 @@ const Game = () => {
             }
         },
         // scene: [Scene,Inventory,MobileJoystick,Menu]
-        scene: [Scene]
+        scene: [Scene, Inventory]
     };
+
+    console.log('I\'m here');
+    
 
 
 
