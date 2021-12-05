@@ -2,9 +2,9 @@ import React from "react";
 import  "phaser";
 import Scene from "./Scene";
 import { IonPhaser } from '@ion-phaser/react'
-import { Menu } from "antd";
-import MobileJoystick from "./Control/MobileJoystick";
+// import MobileJoystick from "./Control/MobileJoystick";
 import Inventory from "./Inventory/inventory";
+import Paper from "./Paper/Paper";
 
 
 
@@ -23,11 +23,10 @@ const Game = () => {
                 gravity: { y: 0 }
             }
         },
-        // scene: [Scene,Inventory,MobileJoystick,Menu]
-        scene: [Scene, Inventory]
+        scene: [Scene, Inventory, Paper]
     };
 
-    console.log('I\'m here');
+
     
 
 
